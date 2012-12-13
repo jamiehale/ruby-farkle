@@ -1,15 +1,16 @@
 Given /^the player is not open$/ do
-  pending # express the regexp above with the code you wish you had
+  @open_or_not_open = "--not-open"
 end
 
-Given /^the roll "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given /^the roll "(.*?)"$/ do |roll|
+  @roll = roll
 end
 
 When /^the scorer is run$/ do
-  pending # express the regexp above with the code you wish you had
+  @scores = `ruby bin/scorer.rb #{@open_or_not_open} #{@roll}`
+  raise( 'Command failed!' ) unless $?.success?
 end
 
-Then /^the scores should include "(.*?)"$/ do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then /^the scores should include "(.*?)"$/ do |score|
+  @scores.should include score
 end
