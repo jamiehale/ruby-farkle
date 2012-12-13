@@ -1,10 +1,12 @@
 class Scorer
   def score( dice )
     results = []
-    if dice.include?( 1 )
-      results << "100:1"
-    elsif dice.include?( 5 )
-      results << "50:1"
+    dice.each_with_index do |roll,index|
+      if roll == 1
+        results << "100:#{index+1}"
+      elsif roll == 5
+        results << "50:#{index+1}"
+      end
     end
     results
   end
