@@ -9,4 +9,5 @@ Feature: Scoring when a player is not open
     Examples: Singles only
       | roll | score |
       | 1    | 100:1 |
+      | 5    | 50:1  |
       
