@@ -11,4 +11,5 @@ Feature: Scoring when a player is not open
       | 1    | 100:1 |
       | 5    | 50:1  |
       | 1,5  | 100:1 |
+      | 1,5  | 50:1  |
       

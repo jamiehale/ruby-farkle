@@ -3,7 +3,8 @@ class Scorer
     results = []
     if dice.include?( 1 )
       results << "100:1"
-    elsif dice.include?( 5 )
+    end
+    if dice.include?( 5 )
       results << "50:1"
     end
     results
