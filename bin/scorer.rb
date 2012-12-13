@@ -1,12 +1,16 @@
 class Scorer
   def score( dice )
-    if dice == "1"
-      "100:1"
-    else
-      "50:1"
+    results = []
+    if dice.include?( 1 )
+      results << "100:1"
+    elsif dice.include?( 5 )
+      results << "50:1"
     end
+    results
   end
 end
 
 scorer = Scorer.new()
-puts scorer.score( ARGV[ 1 ] )
+scorer.score( ARGV[ 1 ].split( ',' ).map { |s| s.to_i } ).each do |score|
+  puts score
+end
