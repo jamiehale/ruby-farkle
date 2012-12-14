@@ -2,6 +2,10 @@ Given /^the player is not open$/ do
   @open_or_not_open = "--not-open"
 end
 
+Given /^the player is open$/ do
+  @open_or_not_open = "--open"
+end
+
 Given /^the roll "(.*?)"$/ do |roll|
   @roll = roll
 end
