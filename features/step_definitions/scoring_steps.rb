@@ -18,3 +18,7 @@ end
 Then /^the scores should not include "(.*?)"$/ do |score|
   @scores.should_not include score
 end
+
+Then /^the scores should indicate a farkle$/ do
+  @scores.should include "Farkle!"
+end

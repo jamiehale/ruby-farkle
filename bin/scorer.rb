@@ -13,6 +13,11 @@ class Scorer
 end
 
 scorer = Scorer.new()
-scorer.score( ARGV[ 1 ].split( ',' ).map { |s| s.to_i } ).each do |score|
-  puts score
+scores = scorer.score( ARGV[ 1 ].split( ',' ).map { |s| s.to_i } )
+if scores.empty?
+  puts "Farkle!"
+else
+  scores.each do |score|
+    puts score
+  end
 end
