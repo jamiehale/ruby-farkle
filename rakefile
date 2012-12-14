@@ -3,3 +3,7 @@ task :default => [ :features ]
 task :features do
 	sh 'cucumber'
 end
+
+task :spec do
+  sh 'rspec --color --format documentation'
+end
