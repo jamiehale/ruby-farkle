@@ -134,4 +134,8 @@ Feature: Scoring when a player is open
       | 4,4,4,4,4,4 | 3200:1,2,3,4,5,6:sextuple |
       | 5,5,5,5,5,5 | 4000:1,2,3,4,5,6:sextuple |
       | 6,6,6,6,6,6 | 4800:1,2,3,4,5,6:sextuple |
+    
+    Examples: Straights
+      | roll        | score                     |
+      | 1,2,3,4,5,6 | 1500:1,2,3,4,5,6:straight |
       
