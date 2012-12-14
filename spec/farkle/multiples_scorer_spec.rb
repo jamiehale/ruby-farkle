@@ -5,7 +5,7 @@ module Farkle
   describe MultiplesScorer do
     let( :scorer ) { MultiplesScorer.new() }
     it "should score triples" do
-      scorer.score( [ 1, 1, 1 ] ).should include "1000:1,2,3:triple"
+      scorer.score( [ 1, 1, 1 ] ).should include Score.new( 1000, [ 1, 2, 3 ], :triple )
     end
   end
 end
