@@ -1,13 +1,22 @@
 module Farkle
   class MultiplesScorer
     def score( dice )
-      if dice == [ 1, 1, 1 ]
-        [ Score.new( 1000, [ 1, 2, 3 ], :triple ) ]
-      elsif dice == [ 2, 1, 3, 1, 1, 5 ]
-        [ Score.new( 1000, [ 2, 4, 5 ], :triple ) ]
+      indices = indices_of_1s( dice )
+      if indices.size == 3
+        [ Score.new( 1000, indices, :triple ) ]
       else
         []
       end
     end
+    private
+      def indices_of_1s( dice )
+        indices = []
+        dice.each_with_index do |roll,index|
+          if roll == 1
+            indices << ( index + 1 )
+          end
+        end
+        indices
+      end
   end
 end
