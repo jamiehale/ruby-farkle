@@ -59,8 +59,8 @@ Feature: Scoring when a player is not open
       Then the scores should indicate a farkle
 
       Examples:
-        | roll |
-        | 2    |
+        | roll        |
+        | 2           |
         | 2,3         |
         | 3,6,4       |
         | 6,2,3,4,4   |
