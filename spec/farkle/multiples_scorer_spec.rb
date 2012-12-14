@@ -91,6 +91,27 @@ module Farkle
       it "should score sextuple 1s" do
         scorer.score( [ 1, 1, 1, 1, 1, 1 ] ).should include Score.new( 8000, [ 1, 2, 3, 4, 5, 6 ], :sextuple )
       end
+      context "quintuples too" do
+        let( :scores ) { scorer.score( [ 1, 1, 1, 1, 1, 1 ] ) }
+        it "should score 6 choose 5 (6) quintuples too" do
+          scores.should include Score.new( 4000, [ 1, 2, 3, 4, 5 ], :quintuple )
+        end
+        it "should score 6 choose 5 (6) quintuples too" do
+          scores.should include Score.new( 4000, [ 1, 3, 4, 5, 6 ], :quintuple )
+        end
+        it "should score 6 choose 5 (6) quintuples too" do
+          scores.should include Score.new( 4000, [ 1, 2, 4, 5, 6 ], :quintuple )
+        end
+        it "should score 6 choose 5 (6) quintuples too" do
+          scores.should include Score.new( 4000, [ 1, 2, 3, 5, 6 ], :quintuple )
+        end
+        it "should score 6 choose 5 (6) quintuples too" do
+          scores.should include Score.new( 4000, [ 1, 2, 3, 4, 6 ], :quintuple )
+        end
+        it "should score 6 choose 5 (6) quintuples too" do
+          scores.should include Score.new( 4000, [ 2, 3, 4, 5, 6 ], :quintuple )
+        end
+      end
     end
   end
 end
