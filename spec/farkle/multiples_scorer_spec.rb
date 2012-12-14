@@ -28,23 +28,31 @@ module Farkle
       end
     end
     context "when scoring quadruples" do
-      it "should score quadruple 1s" do
-        scorer.score( [ 1, 1, 1, 1 ] ).should include Score.new( 2000, [ 1, 2, 3, 4 ], :quadruple )
+      context "quadruples" do
+        it "should score quadruple 1s" do
+          scorer.score( [ 1, 1, 1, 1 ] ).should include Score.new( 2000, [ 1, 2, 3, 4 ], :quadruple )
+        end
+        it "should score quadruple 2s" do
+          scorer.score( [ 2, 2, 3, 2, 2 ] ).should include Score.new( 400, [ 1, 2, 4, 5 ], :quadruple )
+        end
+        it "should score quadruple 3s" do
+          scorer.score( [ 3, 3, 3, 3 ] ).should include Score.new( 600, [ 1, 2, 3, 4 ], :quadruple )
+        end
+        it "should score quadruple 4s" do
+          scorer.score( [ 4, 4, 4, 4 ] ).should include Score.new( 800, [ 1, 2, 3, 4 ], :quadruple )
+        end
+        it "should score quadruple 5s" do
+          scorer.score( [ 5, 5, 5, 5 ] ).should include Score.new( 1000, [ 1, 2, 3, 4 ], :quadruple )
+        end
+        it "should score quadruple 6s" do
+          scorer.score( [ 6, 6, 6, 6 ] ).should include Score.new( 1200, [ 1, 2, 3, 4 ], :quadruple )
+        end
       end
-      it "should score quadruple 2s" do
-        scorer.score( [ 2, 2, 3, 2, 2 ] ).should include Score.new( 400, [ 1, 2, 4, 5 ], :quadruple )
-      end
-      it "should score quadruple 3s" do
-        scorer.score( [ 3, 3, 3, 3 ] ).should include Score.new( 600, [ 1, 2, 3, 4 ], :quadruple )
-      end
-      it "should score quadruple 4s" do
-        scorer.score( [ 4, 4, 4, 4 ] ).should include Score.new( 800, [ 1, 2, 3, 4 ], :quadruple )
-      end
-      it "should score quadruple 5s" do
-        scorer.score( [ 5, 5, 5, 5 ] ).should include Score.new( 1000, [ 1, 2, 3, 4 ], :quadruple )
-      end
-      it "should score quadruple 6s" do
-        scorer.score( [ 6, 6, 6, 6 ] ).should include Score.new( 1200, [ 1, 2, 3, 4 ], :quadruple )
+      context "triples too" do
+        let( :scores ) { scorer.score( [ 1, 1, 1, 1 ] ) }
+        it "should score 4 choose 3 (3) triples too" do
+          scores.should include Score.new( 1000, [ 1, 2, 3 ], :triple )
+        end
       end
     end
     context "when scoring quintuples" do
