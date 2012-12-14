@@ -13,11 +13,11 @@ module Farkle
     private
     
       def is_triple_double?( dice )
-        rolls = [ 0, 0, 0, 0, 0, 0 ]
-        dice.each do |roll|
-          rolls[ roll - 1 ] += 1
-        end
-        rolls.count( 2 ) == 3
+        count_rolls( dice ).count( 2 ) == 3
+      end
+      
+      def count_rolls( dice )
+        dice.inject( [ 0, 0, 0, 0, 0, 0 ] ) { |rolls,roll| rolls[ roll - 1 ] += 1; rolls }
       end
       
   end
