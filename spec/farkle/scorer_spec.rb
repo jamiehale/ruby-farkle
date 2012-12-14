@@ -8,7 +8,9 @@ module Farkle
         it "should score single 1s" do
           Scorer.new( :not_open ).score( [ 1 ] ).should include "100:1"
         end
-        it "should score single 5s"
+        it "should score single 5s" do
+          Scorer.new( :not_open ).score( [ 5 ] ).should include "50:1"
+        end
       end
       it "should recognize farkles"
       it "should not score non-single combinations"
