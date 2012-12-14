@@ -12,5 +12,8 @@ module Farkle
     it "should have a type" do
       score.type.should == :triple
     end
+    it "should be equal to an identical score" do
+      score.should == Score.new( 1000, [ 1, 2, 3 ], :triple )
+    end
   end
 end

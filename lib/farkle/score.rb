@@ -8,5 +8,8 @@ module Farkle
       @dice_indices = dice_indices
       @type = type
     end
+    def ==( s )
+      s.value == @value and s.dice_indices == @dice_indices and s.type == @type
+    end
   end
 end
