@@ -4,7 +4,12 @@ module Farkle
   
   describe Scorer do
     context "when not open" do
-      it "should score singles"
+      describe "singles" do
+        it "should score single 1s" do
+          Scorer.new( :not_open ).score( [ 1 ] ).should include "100:1"
+        end
+        it "should score single 5s"
+      end
       it "should recognize farkles"
       it "should not score non-single combinations"
     end
