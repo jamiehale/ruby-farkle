@@ -11,6 +11,9 @@ module Farkle
       it "should score triple 1s anywhere in the roll" do
         scorer.score( [ 2, 1, 3, 1, 1, 5 ] ).should include Score.new( 1000, [ 2, 4, 5 ], :triple )
       end
+      it "should score triple 2s" do
+        scorer.score( [ 2, 2, 2 ] ).should include Score.new( 200, [ 1, 2, 3 ], :triple )
+      end
     end
   end
 end
