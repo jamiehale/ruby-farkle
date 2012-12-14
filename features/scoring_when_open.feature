@@ -39,4 +39,10 @@ Feature: Scoring when a player is open
     Examples: Triples
       | roll  | score             |
       | 1,1,1 | 1000:1,2,3:triple |
+      | 2,2,2 | 200:1,2,3:triple  |
+      | 3,3,3 | 300:1,2,3:triple  |
+      | 4,4,4 | 400:1,2,3:triple  |
+      | 5,5,5 | 500:1,2,3:triple  |
+      | 6,6,6 | 600:1,2,3:triple  |
+      | 1,2,3,1,1,2| 1000:1,4,5:triple |
       
