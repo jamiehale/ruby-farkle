@@ -9,7 +9,7 @@ module Farkle
       def add_triples_and_quadruples( pips, dice )
         results = []
         indices = indices_of( pips, dice )
-        3.upto( 5 ) do |multiple|
+        3.upto( 6 ) do |multiple|
           if indices.size == multiple
             results += [ Score.new( score_from_pips_and_multiple( pips, multiple ), indices, type_from_multiple( multiple ) ) ]
           end
@@ -36,7 +36,7 @@ module Farkle
         end
       end
       def type_from_multiple( multiple )
-        { 3 => :triple, 4 => :quadruple, 5 => :quintuple }[ multiple ]
+        { 3 => :triple, 4 => :quadruple, 5 => :quintuple, 6 => :sextuple }[ multiple ]
       end
   end
 end

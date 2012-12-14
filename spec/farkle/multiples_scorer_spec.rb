@@ -52,5 +52,10 @@ module Farkle
         scorer.score( [ 1, 1, 1, 1, 1 ] ).should include Score.new( 4000, [ 1, 2, 3, 4, 5 ], :quintuple )
       end
     end
+    context "when scoring sextuples" do
+      it "should score sextuple 1s" do
+        scorer.score( [ 1, 1, 1, 1, 1, 1 ] ).should include Score.new( 8000, [ 1, 2, 3, 4, 5, 6 ], :sextuple )
+      end
+    end
   end
 end
