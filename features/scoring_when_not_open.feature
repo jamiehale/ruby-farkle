@@ -52,26 +52,26 @@ Feature: Scoring when a player is not open
       | 1,2,1,2,2,1 | 2500:1,2,3,4,5,6 |
       | 2,2,2,2,2,2 | 2500:1,2,3,4,5,6 |
 
-    Scenario Outline: Report a bunch of farkles
-      Given the player is not open
-      And the roll "<roll>"
-      When the scorer is run
-      Then the scores should indicate a farkle
+  Scenario Outline: Report a bunch of farkles
+    Given the player is not open
+    And the roll "<roll>"
+    When the scorer is run
+    Then the scores should indicate a farkle
 
-      Examples:
-        | roll        |
-        | 2           |
-        | 2,3         |
-        | 3,6,4       |
-        | 6,2,3,4,4   |
-        | 2,3,4,6,4,2 |
-        | 2,2,2       |
-        | 3,3,3       |
-        | 4,4,4       |
-        | 6,6,6       |
-        | 2,2,2,2     |
-        | 2,2,2,2,2   |
-        | 2,2,2,2,2,2 |
-        | 2,2,2,3,3,3 |
-        | 2,2,3,3,4,4 |
-        
+    Examples:
+      | roll        |
+      | 2           |
+      | 2,3         |
+      | 3,6,4       |
+      | 6,2,3,4,4   |
+      | 2,3,4,6,4,2 |
+      | 2,2,2       |
+      | 3,3,3       |
+      | 4,4,4       |
+      | 6,6,6       |
+      | 2,2,2,2     |
+      | 2,2,2,2,2   |
+      | 2,2,2,2,2,2 |
+      | 2,2,2,3,3,3 |
+      | 2,2,3,3,4,4 |
+      
