@@ -2,13 +2,13 @@ module Farkle
   class MultiplesScorer
     def score( dice )
       results = []
-      1.upto( 2 ) do |roll|
+      1.upto( 6 ) do |roll|
         indices = indices_of( roll, dice )
         if indices.size == 3
           if roll == 1
             results += [ Score.new( 1000, indices, :triple ) ]
           else
-            results += [ Score.new( 200, indices, :triple ) ]
+            results += [ Score.new( roll * 100, indices, :triple ) ]
           end
         end
       end
