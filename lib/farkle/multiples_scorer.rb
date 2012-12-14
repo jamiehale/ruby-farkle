@@ -2,11 +2,11 @@ module Farkle
   class MultiplesScorer
     def score( dice )
       1.upto( 6 ).inject( [] ) do |scores,pips|
-        scores + add_triples_and_quadruples( pips, dice )
+        scores + add_multiples( pips, dice )
       end
     end
     private
-      def add_triples_and_quadruples( pips, dice )
+      def add_multiples( pips, dice )
         results = []
         indices = indices_of( pips, dice )
         3.upto( 6 ) do |multiple|
