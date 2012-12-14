@@ -138,4 +138,5 @@ Feature: Scoring when a player is open
     Examples: Straights
       | roll        | score                     |
       | 1,2,3,4,5,6 | 1500:1,2,3,4,5,6:straight |
+      | 4,3,1,6,2,5 | 1500:1,2,3,4,5,6:straight |
       
