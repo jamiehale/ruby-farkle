@@ -53,6 +53,9 @@ module Farkle
         it "should score 4 choose 3 (3) triples too" do
           scores.should include Score.new( 1000, [ 1, 2, 3 ], :triple )
         end
+        it "should score another triple" do
+          scores.should include Score.new( 1000, [ 2, 3, 4 ], :triple )
+        end
       end
     end
     context "when scoring quintuples" do

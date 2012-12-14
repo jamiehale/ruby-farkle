@@ -42,9 +42,27 @@ module Farkle
       def add_shorter_permutations( pips, multiple, indices )
         results = []
         ( multiple - 1 ).downto( 3 ) do |permutation_size|
-          results << Score.new( score_from_pips_and_multiple( pips, permutation_size ), indices[ 0..permutation_size-1 ], type_from_multiple( permutation_size ) )
+          permutations_of( indices, permutation_size ).each do |permutation|
+            results << Score.new( score_from_pips_and_multiple( pips, permutation_size ), permutation, type_from_multiple( permutation_size ) )
+          end
         end
         results
+      end
+      def collect_permutations_of( set, size )
+        if set.size == size
+          [ set ]
+        else
+          results = []
+          set.each_with_index do |v,i|
+            lower = set[ 0, i ]
+            upper = set[ ( i + 1 )..-1 ]
+            results += collect_permutations_of( lower + upper, size )
+          end
+          results
+        end
+      end
+      def permutations_of( set, size )
+        collect_permutations_of( set, size ).uniq.sort
       end
   end
 end
