@@ -1,5 +1,7 @@
 module Farkle
+  
   class SinglesScorer
+    
     def score( dice )
       dice.each_with_index.inject( [] ) do |scores,(roll,index)|
         if roll == 1
@@ -11,5 +13,7 @@ module Farkle
         end
       end
     end
+    
   end
+  
 end
