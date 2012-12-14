@@ -1,36 +1,45 @@
 module Farkle
   class MultiplesScorer
     def score( dice )
-      1.upto( 6 ).inject( [] ) do |scores,roll|
-        scores + add_triples_and_quadruples( roll, dice )
+      1.upto( 6 ).inject( [] ) do |scores,pips|
+        scores + add_triples_and_quadruples( pips, dice )
       end
     end
     private
-      def add_triples_and_quadruples( roll, dice )
+      def add_triples_and_quadruples( pips, dice )
         results = []
-        indices = indices_of( roll, dice )
-        if indices.size == 3
-          results += [ Score.new( score_from_roll( roll ), indices, :triple ) ]
-        end
-        if indices.size == 4
-          results += [ Score.new( score_from_roll( roll ) * 2, indices, :quadruple ) ]
+        indices = indices_of( pips, dice )
+        3.upto( 4 ) do |multiple|
+          if indices.size == multiple
+            results += [ Score.new( score_from_pips_and_multiple( pips, multiple ), indices, type_from_multiple( multiple ) ) ]
+          end
         end
         results
       end
-      def indices_of( desired_roll, dice )
+      def indices_of( pips, dice )
         indices = []
         dice.each_with_index do |roll,index|
-          if roll == desired_roll
+          if roll == pips
             indices << ( index + 1 )
           end
         end
         indices
       end
-      def score_from_roll( roll )
+      def score_from_pips_and_multiple( pips, multiple )
+        score_from_pips( pips ) * 2 ** ( multiple - 3 )
+      end
+      def score_from_pips( roll )
         if roll == 1
           1000
         else
           roll * 100
+        end
+      end
+      def type_from_multiple( multiple )
+        if multiple == 3
+          :triple
+        else
+          :quadruple
         end
       end
   end
