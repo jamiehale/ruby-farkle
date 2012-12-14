@@ -1,7 +1,7 @@
 module Farkle
   class StraightsScorer
     def score( dice )
-      if dice == [ 1, 2, 3, 4, 5, 6 ]
+      if dice.sort == [ 1, 2, 3, 4, 5, 6 ]
         [ Score.new( 1500, [ 1, 2, 3, 4, 5, 6 ], :straight ) ]
       else
         []
