@@ -143,4 +143,5 @@ Feature: Scoring when a player is open
     Examples: Triple-doubles
       | roll        | score                          |
       | 1,1,2,2,3,3 | 1500:1,2,3,4,5,6:triple_double |
+      | 3,2,5,3,5,2 | 1500:1,2,3,4,5,6:triple_double |
       
