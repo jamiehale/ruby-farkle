@@ -1,0 +1,1 @@
+require 'farkle/scorer'
