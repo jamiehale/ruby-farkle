@@ -7,14 +7,14 @@ Feature: Scoring when a player is open
     Then the scores should include "<score>"
 
     Examples: Singles only
-      | roll        | score |
-      | 1           | 100:1 |
-      | 5           | 50:1  |
-      | 1,5         | 100:1 |
-      | 1,5         | 50:2  |
-      | 1,1,2,3,4,5 | 100:1 |
-      | 1,1,2,3,4,5 | 100:2 |
-      | 1,1,2,3,4,5 | 50:6  |
+      | roll        | score        |
+      | 1           | 100:1:single |
+      | 5           | 50:1:single  |
+      | 1,5         | 100:1:single |
+      | 1,5         | 50:2:single  |
+      | 1,1,2,3,4,5 | 100:1:single |
+      | 1,1,2,3,4,5 | 100:2:single |
+      | 1,1,2,3,4,5 | 50:6:single  |
 
   Scenario Outline: Report a bunch of farkles
     Given the player is open
@@ -46,6 +46,6 @@ Feature: Scoring when a player is open
     Then the scores should include "<score>"
     
     Examples: Triples
-      | roll  | score      |
-      | 1,1,1 | 1000:1,2,3 |
+      | roll  | score             |
+      | 1,1,1 | 1000:1,2,3:triple |
       
