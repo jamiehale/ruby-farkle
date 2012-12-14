@@ -15,5 +15,8 @@ module Farkle
     it "should be equal to an identical score" do
       score.should == Score.new( 1000, [ 1, 2, 3 ], :triple )
     end
+    it "should convert to a string" do
+      score.to_s.should == "1000:1,2,3:triple"
+    end
   end
 end

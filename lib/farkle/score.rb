@@ -11,5 +11,8 @@ module Farkle
     def ==( s )
       s.value == @value and s.dice_indices == @dice_indices and s.type == @type
     end
+    def to_s
+      "#{@value}:" + @dice_indices.join(',') + ":#{@type}"
+    end
   end
 end
