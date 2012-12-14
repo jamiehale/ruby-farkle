@@ -7,14 +7,22 @@ def usage
   exit
 end
 
+def make_scorers( state )
+  if state == :open
+    [ Farkle::SinglesScorer.new(), Farkle::MultiplesScorer.new() ]
+  else
+    [ Farkle::SinglesScorer.new() ]
+  end
+end
+
 def make_scorer
   if ARGV.size == 1
-    Farkle::Scorer.new( :open )
+    Farkle::Scorer.new( make_scorers( :open ) )
   elsif ARGV.size == 2
     if ARGV[ 0 ] == "--open"
-      Farkle::Scorer.new( :open )
+      Farkle::Scorer.new( make_scorers( :open ) )
     elsif ARGV[ 0 ] == "--not-open"
-      Farkle::Scorer.new( :not_open )
+      Farkle::Scorer.new( make_scorers( :not_open ) )
     else
       usage
     end

@@ -13,11 +13,8 @@ module Farkle
     end
   end
   class MultiplesScorer
-    def initialize( state )
-      @state = state
-    end
     def score( dice )
-      if @state == :open and dice == [ 1, 1, 1 ]
+      if dice == [ 1, 1, 1 ]
         [ "1000:1,2,3" ]
       else
         []
@@ -25,23 +22,11 @@ module Farkle
     end
   end
   class Scorer
-    def initialize( state )
-      @state = state
+    def initialize( scorers )
+      @scorers = scorers
     end
     def score( dice )
-      results = []
-      results += score_singles( dice )
-      results += score_multiples( dice )
-      results
+      @scorers.inject( [] ) { |scores,scorer| scores + scorer.score( dice ) }
     end
-    
-    private
-      def score_singles( dice )
-        SinglesScorer.new().score( dice )
-      end
-      def score_multiples( dice )
-        MultiplesScorer.new( @state ).score( dice )
-      end
-    
   end
 end
