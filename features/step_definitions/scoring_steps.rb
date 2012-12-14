@@ -14,3 +14,7 @@ end
 Then /^the scores should include "(.*?)"$/ do |score|
   @scores.should include score
 end
+
+Then /^the scores should not include "(.*?)"$/ do |score|
+  @scores.should_not include score
+end
