@@ -7,11 +7,11 @@ Feature: Scoring when a player is not open
     Then the scores should include "<score>"
 
     Examples: Singles only
-      | roll | score |
-      | 1    | 100:1 |
-      | 5    | 50:1  |
-      | 1,5  | 100:1 |
-      | 1,5  | 50:2  |
+      | roll        | score |
+      | 1           | 100:1 |
+      | 5           | 50:1  |
+      | 1,5         | 100:1 |
+      | 1,5         | 50:2  |
       | 1,1,2,3,4,5 | 100:1 |
       | 1,1,2,3,4,5 | 100:2 |
       | 1,1,2,3,4,5 | 50:6  |
