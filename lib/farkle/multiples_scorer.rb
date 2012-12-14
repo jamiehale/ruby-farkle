@@ -1,20 +1,19 @@
 module Farkle
   class MultiplesScorer
     def score( dice )
-      results = []
-      1.upto( 6 ) do |roll|
-        indices = indices_of( roll, dice )
-        if indices.size == 3
-          if roll == 1
-            results += [ Score.new( 1000, indices, :triple ) ]
-          else
-            results += [ Score.new( roll * 100, indices, :triple ) ]
-          end
-        end
+      1.upto( 6 ).inject( [] ) do |scores,roll|
+        scores + add_triples( roll, dice )
       end
-      results
     end
     private
+      def add_triples( roll, dice )
+        results = []
+        indices = indices_of( roll, dice )
+        if indices.size == 3
+          results += [ Score.new( score_from_roll( roll ), indices, :triple ) ]
+        end
+        results
+      end
       def indices_of( desired_roll, dice )
         indices = []
         dice.each_with_index do |roll,index|
@@ -23,6 +22,13 @@ module Farkle
           end
         end
         indices
+      end
+      def score_from_roll( roll )
+        if roll == 1
+          1000
+        else
+          roll * 100
+        end
       end
   end
 end
