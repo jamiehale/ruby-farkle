@@ -9,7 +9,7 @@ end
 
 def make_scorers( state )
   if state == :open
-    [ Farkle::SinglesScorer.new(), Farkle::MultiplesScorer.new() ]
+    [ Farkle::SinglesScorer.new(), Farkle::MultiplesScorer.new(), Farkle::StraightsScorer.new() ]
   else
     [ Farkle::SinglesScorer.new() ]
   end
