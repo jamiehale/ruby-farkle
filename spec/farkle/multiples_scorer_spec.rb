@@ -50,17 +50,41 @@ module Farkle
       end
       context "triples too" do
         let( :scores ) { scorer.score( [ 1, 1, 1, 1 ] ) }
-        it "should score 4 choose 3 (3) triples too" do
+        it "should score 4 choose 3 (4) triples too" do
           scores.should include Score.new( 1000, [ 1, 2, 3 ], :triple )
         end
         it "should score another triple" do
           scores.should include Score.new( 1000, [ 2, 3, 4 ], :triple )
+        end
+        it "should score yet another triple" do
+          scores.should include Score.new( 1000, [ 1, 3, 4 ], :triple )
+        end
+        it "should score another triple" do
+          scores.should include Score.new( 1000, [ 1, 2, 4 ], :triple )
         end
       end
     end
     context "when scoring quintuples" do
       it "should score quintuple 1s" do
         scorer.score( [ 1, 1, 1, 1, 1 ] ).should include Score.new( 4000, [ 1, 2, 3, 4, 5 ], :quintuple )
+      end
+      context "quadruples too" do
+        let( :scores ) { scorer.score( [ 1, 1, 1, 1, 1 ] ) }
+        it "should score 5 choose 4 (5) quadruples too" do
+          scores.should include Score.new( 2000, [ 1, 2, 3, 4 ], :quadruple )
+        end
+        it "should score another quadruple" do
+          scores.should include Score.new( 2000, [ 1, 3, 4, 5 ], :quadruple )
+        end
+        it "should score another quadruple" do
+          scores.should include Score.new( 2000, [ 1, 2, 4, 5 ], :quadruple )
+        end
+        it "should score another quadruple" do
+          scores.should include Score.new( 2000, [ 1, 2, 3, 5 ], :quadruple )
+        end
+        it "should score another quadruple" do
+          scores.should include Score.new( 2000, [ 2, 3, 4, 5 ], :quadruple )
+        end
       end
     end
     context "when scoring sextuples" do
