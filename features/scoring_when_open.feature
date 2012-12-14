@@ -139,4 +139,8 @@ Feature: Scoring when a player is open
       | roll        | score                     |
       | 1,2,3,4,5,6 | 1500:1,2,3,4,5,6:straight |
       | 4,3,1,6,2,5 | 1500:1,2,3,4,5,6:straight |
+    
+    Examples: Triple-doubles
+      | roll        | score                          |
+      | 1,1,2,2,3,3 | 1500:1,2,3,4,5,6:triple_double |
       
