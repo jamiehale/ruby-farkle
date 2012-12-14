@@ -27,5 +27,10 @@ module Farkle
         scorer.score( [ 6, 2, 6, 2, 6 ] ).should include Score.new( 600, [ 1, 3, 5 ], :triple )
       end
     end
+    context "when scoring quadruples" do
+      it "should score quadruple 1s" do
+        scorer.score( [ 1, 1, 1, 1 ] ).should include Score.new( 2000, [ 1, 2, 3, 4 ], :quadruple )
+      end
+    end
   end
 end

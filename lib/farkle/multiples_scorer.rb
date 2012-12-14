@@ -2,15 +2,18 @@ module Farkle
   class MultiplesScorer
     def score( dice )
       1.upto( 6 ).inject( [] ) do |scores,roll|
-        scores + add_triples( roll, dice )
+        scores + add_triples_and_quadruples( roll, dice )
       end
     end
     private
-      def add_triples( roll, dice )
+      def add_triples_and_quadruples( roll, dice )
         results = []
         indices = indices_of( roll, dice )
         if indices.size == 3
           results += [ Score.new( score_from_roll( roll ), indices, :triple ) ]
+        end
+        if indices.size == 4
+          results += [ Score.new( score_from_roll( roll ) * 2, indices, :quadruple ) ]
         end
         results
       end
