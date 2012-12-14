@@ -38,4 +38,14 @@ Feature: Scoring when a player is open
       | 2,2,2,2,2,2 |
       | 2,2,2,3,3,3 |
       | 2,2,3,3,4,4 |
+  
+  Scenario Outline: Score non-single combinations
+    Given the player is open
+    And the roll "<roll>"
+    When the scorer is run
+    Then the scores should include "<score>"
+    
+    Examples: Triples
+      | roll  | score      |
+      | 1,1,1 | 1000:1,2,3 |
       
