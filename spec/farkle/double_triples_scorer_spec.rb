@@ -6,5 +6,8 @@ module Farkle
     it "should score a double-triple" do
       scorer.score( [ 1, 1, 1, 3, 3, 3 ] ).should include Score.new( 2500, [ 1, 2, 3, 4, 5, 6 ], :double_triple )
     end
+    it "should score a messed up double-triple" do
+      scorer.score( [ 3, 1, 3, 1, 3, 1 ] ).should include Score.new( 2500, [ 1, 2, 3, 4, 5, 6 ], :double_triple )
+    end
   end
 end
